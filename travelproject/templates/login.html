@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LOGIN</title>
+		<style>
+			.login {
+				border: 2px solid black;
+				width: 25%;
+				height: 19rem;
+				margin: auto;
+				margin-top: 18rem;
+				padding: 2.5rem;
+				padding-top: 1rem;
+			}
+		</style>
+	</head>
+	<body style="background-image: url({% static 'images/Login.jpg' %})">
+		<div class="login">
+			<h1 style="text-align: center">LOGIN FORM</h1>
+			<br />
+			{% for msg in messages %}
+			<h3 style="text-align:center;color:red">{{msg}}</h3>
+			{% endfor %}
+			<form action="" method="post">
+				{% csrf_token %}
+				<label>Username:</label><br />
+				<input
+					type="text"
+					name="username"
+					id="username"
+					size="40"
+					placeholder="Enter Username"
+				/><br /><br />
+
+				<label>Password:</label><br />
+				<input
+					type="password"
+					name="password"
+					id="password"
+					size="40"
+					placeholder="Enter Your Password"
+				/><br /><br /><br />
+				<input
+					style="
+						background-color: blue;
+						width: 12rem;
+						height: 2.5rem;
+						text-align: center;
+						margin-left: 5rem;
+						color: white;
+					"
+					type="submit"
+					value="Login"
+				/>
+			</form>
+		</div>
+	</body>
+</html>
